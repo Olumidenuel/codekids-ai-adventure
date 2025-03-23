@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeKids AI Adventure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a86e8;
+            --secondary: #ff7043;
+            --accent: #ffca28;
+            --background: #f5f7fa;
+            --foreground: #333333;
+        }
+
+        body {
+            color: var(--foreground);
+            background: linear-gradient(to bottom, #e0f7fa, #bbdefb);
+            font-family: 'Nunito', 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .button-secondary {
+            background-color: var(--secondary);
+        }
+
+        .paths {
+            background-color: white;
+            border-radius: 50px 50px 0 0;
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .path-card {
+            background: linear-gradient(to bottom right, #4a86e8, #7e57c2);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .path-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .path-card.ai-path {
+            background: linear-gradient(to bottom right, #26a69a, #4caf50);
+        }
+
+        .emoji {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            background-color: #f5f7fa;
+            padding: 60px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 4px solid #bbdefb;
+        }
+
+        .parents-section {
+            background-color: #e3f2fd;
+            padding: 60px 0;
+        }
+
+        .parent-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 4px solid #bbdefb;
+        }
+
+        .parent-info {
+            flex: 2;
+            padding-left: 30px;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .parent-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .parent-info {
+                padding-left: 0;
+                padding-top: 20px;
+            }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">CodeKids AI Adventure</div>
+            <nav>
+                <a href="#" class="button button-secondary">Login</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>Welcome to Your Coding Adventure!</h1>
+            <p>Join us on an exciting journey to learn coding and AI in a fun, interactive way! Perfect for kids ages 5-10.</p>
+            <div>
+                <a href="#" class="button">Start Your Adventure</a>
+                <a href="#" class="button button-secondary">Learn More</a>
+            </div>
+            <div class="emoji float" style="margin-top: 40px;">
+                🤖<br>👩‍💻<br>🚀
+            </div>
+        </section>
+
+        <section class="paths">
+            <div class="container">
+                <h2 style="text-align: center; color: var(--primary); font-size: 36px;">Choose Your Learning Path</h2>
+                <div class="path-grid">
+                    <div class="path-card">
+                        <div class="emoji">👩‍💻</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">Coding Basics</h3>
+                        <p>Learn how to think like a programmer and create your own games and stories!</p>
+                        <a href="#" class="button" style="background-color: white; color: var(--primary);">Start Coding</a>
+                    </div>
+                    <div class="path-card ai-path">
+                        <div class="emoji">🤖</div>
+                        <h3 style="font-size: 24px; margin-bottom: 15px;">AI Adventures</h3>
+                        <p>Discover the exciting world of Artificial Intelligence and how it works!</p>
+                        <a href="#" class="button" style="background-color: white; color: #26a69a;">Explore AI</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 style="text-align: center; color: var(--primary); font-size: 36px;">Fun Features for Young Learners</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="emoji">🏆</div>
+                        <h3 style="color: var(--primary);">Earn Badges</h3>
+                        <p>Complete challenges and collect awesome badges to show off your skills!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="emoji">🎮</div>
+                        <h3 style="color: #7e57c2;">Play & Learn</h3>
+                        <p>Learn through fun games and interactive activities designed just for kids!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="emoji">🚀</div>
+                        <h3 style="color: #4caf50;">Create Projects</h3>
+                        <p>Build your own games, stories, and animations with what you learn!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="parents-section">
+            <div class="container">
+                <h2 style="text-align: center; color: var(--primary); font-size: 36px;">For Parents & Teachers</h2>
+                <div class="parent-card">
+                    <div class="emoji">👨‍👩‍👧‍👦</div>
+                    <div class="parent-info">
+                        <h3 style="color: var(--primary); font-size: 24px;">Monitor Progress</h3>
+                        <p>Track your child's learning journey, view completed activities, and see their achievements.</p>
+                        <p>Access resources to support their learning and get involved in their coding adventure!</p>
+                        <a href="#" class="button">Parent Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h2>CodeKids AI Adventure</h2>
+                    <p>Making coding and AI fun for kids ages 5-10!</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Help</a>
+                </div>
+                <div>
+                    <p>&copy; 2025 CodeKids AI Adventure. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
